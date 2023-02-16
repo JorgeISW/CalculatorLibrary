@@ -17,3 +17,9 @@ def test_subtract() -> None:
 
 def test_multiply() -> None:
     assert calculator.multiply(3, 2) == (3 * 2)
+
+
+def test_divide(monkeypatch: pytest.MonkeyPatch) -> None:
+    inputs = [10, 2]
+    monkeypatch.setattr('builtins.input', lambda _: inputs.pop(0))
+    assert calculator.divide() == (10 / 2)

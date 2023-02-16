@@ -13,3 +13,9 @@ def subtract(first_term, second_term):
 
 def multiply(first_term, second_term):
     return first_term * second_term
+
+
+def divide():
+    first_term = input("Write the first term")
+    second_term = input("Write the second term")
+    return first_term / second_term
