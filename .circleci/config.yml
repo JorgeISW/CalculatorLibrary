@@ -38,9 +38,9 @@ jobs:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command: |
-            pytest --cov --junitxml=test_reports/junit.xml --html=test_reports/pytest_report.html --self-contained-html;
-            coverage xml;
-            mv coverage.xml test_reports/coverage.xml;
+            pytest --junitxml=test_reports/junit.xml --html=test_reports/pytest_report.html --self-contained-html;
+            coverage html;
+            mv htmlcov test_reports;
       - store_test_results:
           path: test_reports
       - store_artifacts:
