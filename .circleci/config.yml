@@ -39,13 +39,12 @@ jobs:
           # This assumes pytest is installed via the install-package step above
           command: |
             pytest --cov --junitxml=test_reports/junit.xml --html=test_reports/pytest_report.html --self-contained-html;
-            coverage html;
+            coverage xml;
+            mv coverage.xml test_reports/coverage.xml;
       - store_test_results:
           path: test_reports
       - store_artifacts:
           path: test_reports
-      - store_artifacts:
-          path: htmlcov
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
