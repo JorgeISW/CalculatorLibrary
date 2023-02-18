@@ -37,16 +37,13 @@ jobs:
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
-          command: pytest --cov --html=test_reports/pytest_report.html --self-contained-html
+          command: |
+            pytest --cov --html=test_reports/pytest_report.html --self-contained-html;
+            coverage html;
       - store_test_results:
           path: test_reports
       - store_artifacts:
           path: test_reports
-      - run:
-          name: Save coverage test report
-          command: coverage html
-      - store_test_results:
-          path: htmlcov
       - store_artifacts:
           path: htmlcov
 
